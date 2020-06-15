@@ -25,6 +25,7 @@ end
 
 5. removed all AWS gems.
 6. in storage.yml, uncommented test and local storage. REmoved all commented out code
+7. Reloaded credentials
 
 ### [StayWithMe live](http://www.stay-with-me.xyz/#/)
 
