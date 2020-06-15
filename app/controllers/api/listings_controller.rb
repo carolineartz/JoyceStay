@@ -2,12 +2,14 @@ class Api::ListingsController < ApplicationController
   before_action :require_logged_in, only: [:create, :destroy, :update]
 
   def create
-    @listing = Listing.new(listing_params)
+    @listing = Listing.new(listing_params);
     @listing.user_id = current_user.id;
-    if @listing.save
+   
+    if @listing.save;
+
       @listing.listing_availabilities.create(
-        start_date: params[:listing][:start_date], 
-        end_date: params[:listing][:end_date]
+        start_date: listing_availabilities_params[:start_date], 
+        end_date: listing_availabilities_params[:end_date]
       )
       render 'api/listings/show'
 
@@ -74,16 +76,25 @@ class Api::ListingsController < ApplicationController
   end
 
   private
-  def listing_params
-    params.require(:listing).permit(:user_id, :title, :thumb_img_idx, :address, :lat, :lng, :price, :home_type_id, :description, :max_guests, photos: [], amenity_ids: [])
-  end
+    def listing_params
+      params.require(:listing).permit(
+        :user_id, :title, :thumb_img_idx, 
+        :address, :lat, :lng, :price, :home_type_id, 
+        :description, :max_guests, photos: [], amenity_ids: [], listing_availabilities: [:start_date, :end_date]
+      )
+   end
 
-  def query_params
+   def listing_availabilities_params
+    params.require(:listing).permit(:start_date, :end_date)
+  end
+  
+   def query_params
     params[:query] if params[:query]
   end
 
   def sample_listings
     params[:query][:sample] if params[:query] && params[:query][:sample]
   end
+
 
 end

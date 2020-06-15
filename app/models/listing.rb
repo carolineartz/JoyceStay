@@ -19,13 +19,15 @@
 #
 
 class Listing < ApplicationRecord
-  validates :user_id, :title, :address, :lat, :lng, :price,:home_type_id, :description, :max_guests, presence: true
-
+  validates :user_id, :title, :address, :lat, :lng, 
+  :price,:home_type_id, :description, :max_guests, presence: true
+  
   belongs_to :user
   has_many :reviews, dependent: :destroy
   has_many :listing_availabilities, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_many_attached :photos, dependent: :destroy
+  accepts_nested_attributes_for :listing_availabilities
 
   def self.in_bounds(bounds)
     self.where("lat < ?", bounds[:northEast][:lat])
