@@ -515,7 +515,7 @@ class ListingForm extends Component {
               isDayBlocked={(day) => this.checkBlockedDays(day)}
               isOutsideRange={(day) => isInclusivelyAfterDay(today, day)}
               onOutsideClick={DayPickerRangeController.onOutsideClick}
-              enableOutsideDays={false}
+              enableOutsideDays={true}
               numberOfMonths={2}
               onPrevMonthClick={DayPickerRangeController.onPrevMonthClick}
               onNextMonthClick={DayPickerRangeController.onNextMonthClick}
