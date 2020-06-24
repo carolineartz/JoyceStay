@@ -1,6 +1,9 @@
 To run it locally,
+
 Rake db:drop db:create db:migrate
+
 npm install react-redux
+
 npm install --save-dev redux-devtools
 
 
