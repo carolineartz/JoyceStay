@@ -1,6 +1,12 @@
+To run it locally,
+Rake db:drop db:create db:migrate
+npm install react-redux
+npm install --save-dev redux-devtools
+
+
 # StayWithMe
 
-Joyce's additional notes:
+Joyce's additional notes (See MVP List):
 
 1. On listing_form.jsx, put start_date and end_date as objects.
    listing_availabilities: {
@@ -27,7 +33,7 @@ end
 6. in storage.yml, uncommented test and local storage. REmoved all commented out code
 7. Reloaded credentials
 
-### [StayWithMe live](http://www.stay-with-me.xyz/#/)
+### [StayWithMe]
 
 StayWithMe is an AirBnB inspired site with a number of fully functional features:
 
@@ -38,7 +44,7 @@ StayWithMe is an AirBnB inspired site with a number of fully functional features
 ## User Profile Section
 
 - Edit user profile picture, email, password and username.
-- Create listings, upload photos (stored in AWS), and update or delete a user's listings
+- Create listings, upload photos, and update or delete a user's listings
 - See list of user's reviews, bookings made for other listings, bookings that have been made for user's listings, and interface to approve or deny bookings
 
 ## Search
