@@ -7,6 +7,7 @@ import PlacesAutocompleteComponent from "../misc/places_autocomplete_component";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import Loading from "../misc/loading";
 import Select from "react-select";
+import "font-awesome/css/font-awesome.min.css";
 
 import moment from "moment";
 
@@ -454,7 +455,7 @@ class ListingForm extends Component {
               multiple
             />
 
-            <label htmlFor="file" className="upload-button">
+            <label htmlFor="file" className="upload-button fas fa-image">
               Add Photos
             </label>
             {!!this.state.selectedPhotoFiles.length && (

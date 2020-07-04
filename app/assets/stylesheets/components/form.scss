@@ -63,7 +63,7 @@
 		background: #f15d22;
 		border: none;
 		border-radius: 5px;
-		color: #484848;
+		color: #fff;
 		cursor: pointer;
 		display: inline-block;
 		font-size: inherit;
@@ -75,12 +75,12 @@
 		vertical-align: middle;
 
 		&.upload-button {
-			background-color: #ffb347;
+			background-color: #8EB1D9;
 			border-radius: 2px;
 			overflow: hidden;
 
 			&:hover {
-				background-color: lighten(#ffb347, 5%);
+				background-color: lighten(#8EB1D9, 5%);
 			}
 		}
 
