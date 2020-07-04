@@ -230,6 +230,8 @@ class ListingForm extends Component {
       "start_date",
       "end_date",
       "max_guests",
+      "photos",
+      "amenity",
     ];
 
     const fieldErrors = {};
