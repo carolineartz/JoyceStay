@@ -7,7 +7,6 @@ import PlacesAutocompleteComponent from "../misc/places_autocomplete_component";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import Loading from "../misc/loading";
 import Select from "react-select";
-import "font-awesome/css/font-awesome.min.css";
 
 import moment from "moment";
 
@@ -27,9 +26,9 @@ class ListingForm extends Component {
         lat: 0,
         lng: 0,
         price: "",
-        home_type_id: 1,
+        home_type_id: "",
         description: "",
-        max_guests: "1",
+        max_guests: "",
         listing_availabilities: {
           start_date: "",
           end_date: "",
