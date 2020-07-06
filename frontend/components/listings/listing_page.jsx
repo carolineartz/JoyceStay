@@ -21,7 +21,8 @@ import {
   Kitchen,
   TV,
   Washer,
-  Dryer
+  Dryer,
+  None
  } from '../../static_assets/amenity_icons';
 import ListingImageHeader from './listing_image_header';
 
@@ -119,7 +120,8 @@ class Listing extends Component {
       Kitchen,
       TV,
       Washer,
-      Dryer
+      Dryer,
+      None
     }
 
     const canLeaveReview = Boolean(_.find(user.listing_booking_ids, {'listing_id': id, 'status': 'APPROVED'}));
@@ -147,7 +149,6 @@ class Listing extends Component {
               <hr className="hr-24--no-line" />
               <p>{max_guests} guests</p>
             </div>
-
             <div className="profile-thumb-wrapper">
               <Link to={`/users/${user_id}/profile`}>
                 <div className="profile-thumb" style={{backgroundImage: `url(${ownerPhotoUrl})`}}></div>
@@ -214,7 +215,6 @@ class Listing extends Component {
           <section className="reviews-container">
             {!isEmpty(reviews) ? Object.values(reviews).map(review => <Review key={review.id} review={review} />) : null}
           </section>
-
           {/* LEAVE REVIEWS */}
           { (this.props.listing.user_id != user.id && 
             canLeaveReview && 
@@ -222,7 +222,6 @@ class Listing extends Component {
           <ReviewForm listing_id={id} />
           ) :
           null }
-
           <hr className="hr-24"/>
           <hr className="hr-24--no-line"/>
           {/* LOCATION */}
@@ -241,7 +240,6 @@ class Listing extends Component {
     )
   }
 }
-
 const msp = (state, props) => ({
   user: state.session,
   listing: state.entities.listings[props.match.params.id],
@@ -250,10 +248,8 @@ const msp = (state, props) => ({
   home_types: state.entities.home_types,
   reviews: state.entities.reviews
 })
-
 const mdp = dispatch => ({
   fetchListing: id => dispatch(fetchListing(id)),
   fetchListingReviews: (listingId) => dispatch(fetchListingReviews(listingId)),
 })
-
 export default withRouter(connect(msp,mdp)(Listing));
