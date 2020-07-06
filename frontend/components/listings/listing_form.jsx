@@ -34,7 +34,7 @@ class ListingForm extends Component {
           end_date: "",
         },
         photos: [], //photoUrls
-        amenity_ids: [],
+        checkboxes_ids: [],
       },
       focusedInput: "startDate",
       calendarFocused: null,
@@ -136,11 +136,11 @@ class ListingForm extends Component {
     }
   };
 
-  handleAmenities = (amenitiesArray) => {
+  handleCheckboxes = (checkboxesArray) => {
     this.setState({
       listing: {
         ...this.state.listing,
-        amenity_ids: amenitiesArray.map((amenity) => amenity.value),
+        checkboxes_ids: checkboxesArray.map((checkboxes) => checkboxes.value),
       },
     });
   };
@@ -295,7 +295,7 @@ class ListingForm extends Component {
         thumb_img_idx,
         address,
         price,
-        amenity_ids,
+        checkboxes_ids,
         home_type_id,
         description,
         max_guests,
@@ -303,17 +303,17 @@ class ListingForm extends Component {
       },
     } = this.state;
 
-    let formattedAmenities = amenities.map((amenity) => {
+    let formattedCheckboxes = checkboxes.map((checkboxes) => {
       return {
-        value: amenity.id,
-        label: amenity.name,
+        value: checkboxes.id,
+        label: checkboxes.name,
       };
     });
 
-    let defaultAmentities = [];
-    if (amenity_ids.length) {
-      defaultAmentities = formattedAmenities.filter((a) =>
-        amenity_ids.includes(a.value)
+    let defaultCheckboxes = [];
+    if (checkboxes_ids.length) {
+      defaultCheckboxes = formattedCheckboxes.filter((a) =>
+        checkboxes_ids.includes(a.value)
       );
     }
 
@@ -406,15 +406,15 @@ class ListingForm extends Component {
             </label>
 
             <label>
-              Select Amenities
+              Select checkboxes
               <div className="basic-multi-select-wrapper">
                 <Select
                   isMulti
-                  options={formattedAmenities}
+                  options={formattedCheckbox}
                   className="basic-multi-select"
                   classNamePrefix="select"
-                  value={defaultAmentities}
-                  onChange={this.handleAmenities}
+                  value={defaultCheckbox}
+                  onChange={this.handleCheckboxes}
                 />
               </div>
             </label>
