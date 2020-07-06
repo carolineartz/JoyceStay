@@ -125,3 +125,21 @@ export const Dryer = () => {
       </div>
   )
 }
+
+export const None = () => {
+  return (
+    <div className="checkbox">
+        <label>
+          <input
+            type="checkbox"
+            value={label}
+            checked={isChecked}
+            onChange={this.checkboxList}
+            style={{'height': 19, 'width': 19, 'fill': '#484848'}}></input>
+        
+
+          {label}
+        </label>
+      </div>
+  )
+}

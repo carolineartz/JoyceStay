@@ -21,7 +21,8 @@ import {
   Kitchen,
   TV,
   Washer,
-  Dryer
+  Dryer,
+  None
  } from '../../static_assets/amenity_icons';
 import ListingImageHeader from './listing_image_header';
 
@@ -119,7 +120,8 @@ class Listing extends Component {
       Kitchen,
       TV,
       Washer,
-      Dryer
+      Dryer,
+      None
     }
 
     const canLeaveReview = Boolean(_.find(user.listing_booking_ids, {'listing_id': id, 'status': 'APPROVED'}));
