@@ -34,7 +34,7 @@ class ListingForm extends Component {
           end_date: "",
         },
         photos: [], //photoUrls
-        checkboxes_ids: [],
+        amenity_ids: [],
       },
       focusedInput: "startDate",
       calendarFocused: null,
@@ -136,11 +136,11 @@ class ListingForm extends Component {
     }
   };
 
-  handleCheckboxes = (checkboxesArray) => {
+  handleAmenities = (amenitiesArray) => {
     this.setState({
       listing: {
         ...this.state.listing,
-        checkboxes_ids: checkboxesArray.map((checkboxes) => checkboxes.value),
+        amenity_ids: amenitiesArray.map((amenity) => amenity.value),
       },
     });
   };
@@ -297,7 +297,7 @@ class ListingForm extends Component {
         thumb_img_idx,
         address,
         price,
-        checkboxes_ids,
+        amenity_ids,
         home_type_id,
         description,
         max_guests,
@@ -305,17 +305,17 @@ class ListingForm extends Component {
       },
     } = this.state;
 
-    let formattedCheckboxes = checkboxes.map((checkboxes) => {
+    let formattedAmenities = amenities.map((amenity) => {
       return {
-        value: checkboxes.id,
-        label: checkboxes.name,
+        value: amenity.id,
+        label: amenity.name,
       };
     });
 
-    let defaultCheckboxes = [];
-    if (checkboxes_ids.length) {
-      defaultCheckboxes = formattedCheckboxes.filter((a) =>
-        checkboxes_ids.includes(a.value)
+    let defaultAmentities = [];
+    if (amenity_ids.length) {
+      defaultAmentities = formattedAmenities.filter((a) =>
+        amenity_ids.includes(a.value)
       );
     }
 
