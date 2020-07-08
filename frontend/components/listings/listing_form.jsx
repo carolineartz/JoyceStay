@@ -230,8 +230,8 @@ class ListingForm extends Component {
       "start_date",
       "end_date",
       "max_guests",
+      "home_type_id",
       "photos",
-      "amenity",
     ];
 
     const fieldErrors = {};
@@ -374,7 +374,6 @@ class ListingForm extends Component {
                 dropdownClass="autocomplete-dropdown"
               />
             </label>
-
             <label>
               Price Per Night
               <input
@@ -389,7 +388,6 @@ class ListingForm extends Component {
                 onBlur={this.removeError("price")}
               />
             </label>
-
             <label>
               Home Type
               <select
@@ -408,15 +406,15 @@ class ListingForm extends Component {
             </label>
 
             <label>
-              Select checkboxes
+              Select Amenities
               <div className="basic-multi-select-wrapper">
                 <Select
                   isMulti
-                  options={formattedCheckbox}
+                  options={formattedAmenities}
                   className="basic-multi-select"
                   classNamePrefix="select"
-                  value={defaultCheckbox}
-                  onChange={this.handleCheckboxes}
+                  value={defaultAmentities}
+                  onChange={this.handleAmenities}
                 />
               </div>
             </label>
@@ -456,7 +454,7 @@ class ListingForm extends Component {
               multiple
             />
 
-            <label htmlFor="file" className="upload-button fas fa-image">
+            <label htmlFor="file" className="upload-button">
               Add Photos
             </label>
             {!!this.state.selectedPhotoFiles.length && (
@@ -563,5 +561,4 @@ class ListingForm extends Component {
     );
   }
 }
-
 export default ListingForm;
