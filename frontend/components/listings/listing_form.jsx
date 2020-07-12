@@ -124,6 +124,9 @@ class ListingForm extends Component {
     });
   };
 
+  
+
+
   onPriceChange = (e) => {
     const price = e.target.value;
     if (!price || price.match(/^\d{1,}(\.\d{0,2})?$/)) {
@@ -486,13 +489,13 @@ class ListingForm extends Component {
                 <p>Available From:</p>
                 <input
                   type="text"
-                  name="start_date"
+                  name="startdate"
                   className={`text-input ${
                     fieldErrors.start_date ? "field-error" : null
                   }`}
                   value={startDateString}
                   placeholder="mm/dd/yyyy"
-                  readOnly
+                  //onClick={this.onEditDates(dates.change)}
                 />
               </label>
               <label>
@@ -502,10 +505,10 @@ class ListingForm extends Component {
                   className={`text-input ${
                     fieldErrors.end_date ? "field-error" : null
                   }`}
-                  name="end_date"
+                  name="enddate"
                   value={endDateString}
                   placeholder="mm/dd/yyyy"
-                  readOnly
+                  //onClick={this.onEditDates(dates.change)}
                 />
               </label>
             </div>
@@ -519,18 +522,24 @@ class ListingForm extends Component {
               numberOfMonths={2}
               onPrevMonthClick={DayPickerRangeController.onPrevMonthClick}
               onNextMonthClick={DayPickerRangeController.onNextMonthClick}
-              onDatesChange={({ startDate, endDate }) =>
-                this.setState({
-                  startDate,
-                  endDate,
-                  listing: {
-                    ...this.state.listing,
-                    start_date:
-                      startDate && moment(startDate).format("YYYY-MM-DD"),
-                    end_date: endDate && moment(endDate).format("YYYY-MM-DD"),
-                  },
-                })
-              }
+              onDatesChange= {() =>{
+              
+              const [startDate, setStartDate] = useState(new Date());
+              const [endDate, setEndDate] = useState(new Date());
+              return (
+                <DatePicker>
+                  dateFormat="yyyy/MM/dd"
+                  selected={startDate}
+                  onChange={date => setStartDate(date)}
+                
+               
+                  dateFormat="yyyy/MM/dd"
+                  selected={endDate}
+                  onChange={date => setEndDate(date)}
+                </DatePicker>
+              );
+            } }
+              
               focusedInput={focusedInput}
               onFocusChange={this.onFocusChange}
             />
