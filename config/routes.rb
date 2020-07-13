@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     post '/bookings/ids', to: 'bookings#index'
     get '/listings/:listing_id/bookings', to: 'bookings#index'
     patch '/bookings/:id/:status', to: 'bookings#update_status'
-    
   end
+
+  get '/undefined', to: 'static_pages#root'
+
   root to: 'static_pages#root'
 end
