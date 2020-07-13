@@ -67,10 +67,7 @@ class ListingForm extends Component {
 
   checkBlockedDays = (day) => {
     if (this.props.listing) {
-      const {
-        listing,
-        listing: { booked_dates },
-      } = this.props;
+      const { listing: { booked_dates } } = this.props;
       day = moment(day).format("YYYY-MM-DD");
 
       return (
@@ -82,9 +79,7 @@ class ListingForm extends Component {
               null,
               "()"
             ) && booking.status == "APPROVED"
-        ).length ||
-        moment(day).isBefore(moment(listing.start_date).subtract(1, "d")) ||
-        moment(day).isAfter(listing.end_date)
+        ).length
       );
     }
   };
@@ -146,7 +141,6 @@ class ListingForm extends Component {
   };
 
   handleSubmit = () => {
-    debugger;
     const { hasErrors, fieldErrors } = this.checkForEmptyFields();
     this.setState({ savingListing: true });
 
