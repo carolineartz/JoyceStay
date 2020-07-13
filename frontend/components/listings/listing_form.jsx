@@ -224,8 +224,7 @@ class ListingForm extends Component {
       "start_date",
       "end_date",
       "max_guests",
-      "home_type_id",
-      "photos",
+      "home_type_id"
     ];
 
     const fieldErrors = {};
