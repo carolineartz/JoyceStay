@@ -78,16 +78,16 @@ class Api::ListingsController < ApplicationController
   private
     def listing_params
       params.require(:listing).permit(
-        :user_id, :title, :thumb_img_idx, 
-        :address, :lat, :lng, :price, :home_type_id, 
-        :description, :max_guests, photos: [], amenity_ids: [], listing_availabilities: [:start_date, :end_date]
+        :user_id, :title, :thumb_img_idx,
+        :address, :lat, :lng, :price, :home_type_id,
+        :description, :max_guests, photos: [], amenity_ids: [], listing_availabilities_attributes: [:start_date, :end_date]
       )
    end
 
    def listing_availabilities_params
     params.require(:listing).permit(:start_date, :end_date)
   end
-  
+
    def query_params
     params[:query] if params[:query]
   end
